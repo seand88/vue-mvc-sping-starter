@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MenashaCorporation/holdwip.git"
+    "url": ""
   },
-  "author": "orbis corporation",
-  "license": "ISC",
+  "author": "",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/MenashaCorporation/holdwip/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/MenashaCorporation/holdwip#readme"
+  "homepage": ""
 }
