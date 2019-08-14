@@ -1,0 +1,146 @@
+<b-container>
+    <b-row>
+            <b-col>
+                <div>
+                    <b-form-group id="prodOrderNumGroup" label="Production Order Number : " label-for="prodOrderNum">
+                        <b-form-input id = "prodOrderNum"
+                                      type="text"
+                                      v-model= holdTicket.prodOrderNum
+                                      :readonly = "holdTicket.readonly">
+                        </b-form-input>
+                    </b-form-group>
+                </div>
+            </b-col>
+            <b-col>
+                <div>
+                    <b-form-group id="prodOrderQtyGroup" label="Production Order QTY : " label-for="prodOrderQty">
+                        <b-form-input id = "prodOrderQty"
+                                      type="text"
+                                      v-model= holdTicket.prodOrderQty
+                                      :readonly = "holdTicket.readonly">
+                        </b-form-input>
+                    </b-form-group>
+                </div>
+            </b-col>
+    </b-row>
+    <b-row>
+        <b-col>
+            <div>
+                <b-form-group id="returnAuthGroup" label="Return Authorization Number : " label-for="prodOrderNum">
+                    <b-form-input id = "returnAuthNum"
+                                  type="text"
+                                  v-model= holdTicket.returnAuthNum
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+        <b-col>
+            <div>
+                <b-form-group id="purchaseOrderNumGroup" label="Purchase Order Number : " label-for="purchaseOrderNum">
+                    <b-form-input id = "purchaseOrderNum"
+                                  type="text"
+                                  v-model= holdTicket.purchaseOrderNum
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+    </b-row>
+    <b-row>
+        <b-col>
+            <div>
+                <b-form-group id="materialDescGroup" label="Material Description : " label-for="materialDesc">
+                    <b-form-input id = "materialDesc"
+                                  type="text"
+                                  v-model= holdTicket.materialDesc
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+        <b-col>
+            <div>
+                <b-form-group id="holdDateGroup" label="Hold Date : " label-for="holdDate">
+                    <b-form-input id = "holdDate"
+                                  type="text"
+                                  v-model= holdTicket.holdDate
+                                  :readonly = "true">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+    </b-row>
+    <b-row>
+        <b-col>
+            <div>
+                <b-form-group id="materialNumGroup" label="SAP Material Number : " label-for="materialNum">
+                    <b-form-input id = "materialNum"
+                                  type="text"
+                                  v-model= holdTicket.materialNumber
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+        <b-col>
+            <div>
+                <b-form-group id="onHoldByGroup" label="Entered By : " label-for="onHoldBy">
+                    <b-form-input id = "onHoldBy"
+                                  type="text"
+                                  v-model= holdTicket.onHoldBy
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+    </b-row>
+    <b-row>
+        <b-col>
+            <div>
+                <b-form-group id="salesOrderGroup" label="Sales Order Number : " label-for="salesOrderNum">
+                    <b-form-input id = "salesOrderNum"
+                                  type="text"
+                                  v-model= holdTicket.salesOrderNum
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+        <b-col>
+            <div>
+                <b-form-group id="lineItemGroup" label="Line Number : " label-for="lineItem">
+                    <b-form-input id = "lineItem"
+                                  type="text"
+                                  v-model= holdTicket.lineItem
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+    </b-row>
+    <b-row>
+        <b-col>
+            <div>
+                <b-form-group id="colorGroup" label="Color : " label-for="color">
+                    <b-form-input id = "color"
+                                  type="text"
+                                  v-model= holdTicket.color
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+        <b-col>
+            <div>
+                <b-form-group id="optionNumberGroup" label="Option Number : " label-for="optionNumber">
+                    <b-form-input id = "optionNumber"
+                                  type="text"
+                                  v-model= holdTicket.optionNumber
+                                  :readonly = "holdTicket.readonly">
+                    </b-form-input>
+                </b-form-group>
+            </div>
+        </b-col>
+    </b-row>
+</b-container>

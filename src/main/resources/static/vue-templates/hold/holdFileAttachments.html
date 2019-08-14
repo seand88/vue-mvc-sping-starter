@@ -1,0 +1,44 @@
+<b-container xmlns:v-on="http://www.w3.org/1999/xhtml">
+        <h5>Upload New Files: </h5>
+        <form enctype = "multipart/form-data">
+            <b-row>
+                <b-col>
+                    <input type ="file" name = "file"  multiple = "true" v-on:change="fileChange($event.target.files)"/>
+                </b-col>
+            </b-row>
+        </form>
+        <b-list-group flush>
+            <b-list-group-item v-for = "(file, index) in filesToUpload">
+                <b-input-group>
+                    <b-input :disabled = true :value = file.name></b-input>
+                    <b-input-group-append>
+                        <b-btn variant = "danger" class = "fa fa-trash" @click = "removeUpload(index)"></b-btn>
+                    </b-input-group-append>
+                </b-input-group>
+            </b-list-group-item>
+        </b-list-group>
+        <b-row>
+            <b-col>
+                <b-btn variant = "primary" v-on:click="uploadFiles()"> Upload </b-btn>
+            </b-col>
+        </b-row>
+        <b-container fluid>
+            <b-row>
+                <h5>Manage Files: </h5>
+            </b-row>
+            <b-row>
+                <b-list-group flush>
+                    <b-list-group-item v-for ="(attachment, index) in attachments">
+                        <b-input-group prepend = "Attachment: ">
+                            <b-input :disabled = true
+                                     :value = attachment.attachmentName></b-input>
+                            <b-input-group-append>
+                                <b-btn variant = "danger" class = "fa fa-trash" @click="deleteFile(index)"></b-btn>
+                            </b-input-group-append>
+                        </b-input-group>
+                    </b-list-group-item>
+                </b-list-group>
+            </b-row>
+        </b-container>
+</b-container>
+

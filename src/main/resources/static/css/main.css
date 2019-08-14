@@ -1,0 +1,18 @@
+#homeContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -45%);
+}
+
+#navContainer {
+    text-align: center;
+}
+#navContainer ul {
+    display: inline-table;
+}
+#navContainer li{
+    display: inline;
+}
+

@@ -1,0 +1,4 @@
+# initially set profile to local, environment variables on stage and prod will override this
+spring:
+  profiles:
+    active: local

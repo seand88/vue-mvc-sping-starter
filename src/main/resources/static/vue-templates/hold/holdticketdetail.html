@@ -1,0 +1,36 @@
+<b-container fluid>
+    <!-- main card -->
+    <b-card  header = "Hold Ticket Details">
+        <b-card-group deck >
+            <!-- SAP info card -->
+            <b-card border-variant = "secondary">
+                <b-card-body>
+                    <b-row>
+                        <b-col><strong>Days Open: </strong>{{holdTicket.calculateDaysOpen()}}</b-col>
+                        <b-col><strong>On Hold By: </strong>{{holdTicket.onHoldBy}}</b-col>
+                    </b-row>
+                    <b-row>
+                        <b-col><strong>Ticket #: </strong> {{holdTicket.holdTicketId}}</b-col>
+                        <b-col><strong>Hold Date: </strong> {{holdTicket.holdDate}}</b-col>
+                    </b-row>
+                    <b-row >
+                        <b-col><strong>CAPA #: </strong> {{holdTicket.cparNum}}</b-col>
+                        <b-col><strong>Description of Non-Conformance: </strong> {{holdTicket.comments}}</b-col>
+                    </b-row>
+                    <b-row>
+                        <b-col><strong>Action Required: </strong>{{holdTicket.reverificationRequired}}</b-col>
+                    </b-row>
+                </b-card-body>
+            </b-card>
+        </b-card-group>
+    </b-card>
+    <b-card-footer>
+        <b-btn-toolbar>
+            <b-btn-group>
+                <b-button :href = "editTicketURL(holdTicket.holdTicketId)" v-b-tooltip.hover title="Edit" variant = "primary"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></b-button>
+                <b-button :href = "actionTrackingURL(holdTicket.holdTicketId)" v-b-tooltip.hover title="Action Tracker" variant = "primary"> <i class="fa fa-external-link" aria-hidden="true"></i></b-button>
+            </b-btn-group>
+        </b-btn-toolbar>
+    </b-card-footer>
+
+</b-container>

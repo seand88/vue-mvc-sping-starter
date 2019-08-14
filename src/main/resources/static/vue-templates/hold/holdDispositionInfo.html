@@ -1,0 +1,125 @@
+    <div>
+        <b-modal  :ok-only = "true" id = "detailsModal" title = "Disposition Definitions">
+            <div>
+                <b-row>
+                    <b-list-group flush>
+                        <b-list-group-item><strong>Re-work: </strong> Product to be corrected to meet requirements</b-list-group-item>
+                        <b-list-group-item><strong>Scrap: </strong> Product rejected as unsuitable</b-list-group-item>
+                        <b-list-group-item><strong>Re-grade: </strong> Product is suitable for an alternative application where the product meets criteria</b-list-group-item>
+                        <b-list-group-item><strong>Return: </strong> Items to be returned. Typically applies to purchased product</b-list-group-item>
+                        <b-list-group-item><strong>Accept As Is: </strong> Product does not meet requirements, yet determined to meet "fitness for purpose". Requires written Product Manager Approval. E-mail is acceptable written approval</b-list-group-item>
+                        <b-list-group-item><strong>Sort: </strong> Product to be sorted per action required</b-list-group-item>
+                        <b-list-group-item><strong>Meets Spec: </strong> Product found to meet spec</b-list-group-item>
+                    </b-list-group>
+                </b-row>
+            </div>
+        </b-modal>
+    <b-row>
+            <b-col>
+                <div>
+                        <b-form-group horizontal :label-cols = "2" breakpoint = "md" id="dispositionGroup" label = "Current Disposition :" label-for="disposition">
+                                    <b-btn v-b-modal.detailsModal v-b-tooltip.hover title="Disposition Definitions" variant = "warning" class = "xs"><i class = "fa fa-question-circle"></i></b-btn>
+                        </b-form-group>
+                    <b-form-group>
+                            <b-form-select id = "disposition"
+                                           :options = "dispositions"
+                                           v-model= holdTicket.dispositionId
+                                           :disabled = "holdTicket.readonly">
+                            </b-form-select>
+                    </b-form-group>
+                </div>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col>
+                <div>
+                    <b-form-group id="actionRequiredGroup" label="Action Required / Comments : " label-for="dispositionComments">
+                        <b-form-textarea id = "dispositionComments"
+                                         v-model= holdTicket.dispositionComments
+                                        :rows = "5" :max-rows = "5"
+                                        :disabled = "holdTicket.readonly">
+                        </b-form-textarea>
+                    </b-form-group>
+                </div>
+            </b-col>
+        </b-row>
+
+       <b-row>
+           <b-col>
+              <div v-if = "(holdTicket.dispositionId === 1 || holdTicket.dispositionId === 7)">
+                   <b-form-group id="reverificationRequiredGoup" label="Re-verification Required : " label-for="reverificationComments">
+                       <b-form-textarea id = "reverificationComments"
+                                        v-model= holdTicket.reverificationRequired
+                                        :rows = "5" :max-rows = "5"
+                                        required
+                                        :readonly = holdTicket.readonly>
+                       </b-form-textarea>
+                   </b-form-group>
+               </div>
+           </b-col>
+       </b-row>
+
+      <b-row>
+          <b-col>
+              <div>
+                  <b-form-group id="responsibleForActionGroup" label="Responsible for Action:  " label-for="responsibleForAction">
+                      <b-form-input id = "responsibleForAction"
+                                    type="text"
+                                    v-model= holdTicket.responsibleForAction
+                                    :readonly = "holdTicket.readonly">
+                      </b-form-input>
+                  </b-form-group>
+              </div>
+          </b-col>
+          <b-col>
+              <div>
+                  <b-form-group id="dispositionByGroup" label="Disposition By :  " label-for="dispositionBy">
+                      <b-form-input id = "dispositionBy"
+                                    type="text"
+                                    v-model= holdTicket.dispositionBy
+                                    :readonly = "holdTicket.readonly">
+                      </b-form-input>
+                  </b-form-group>
+              </div>
+          </b-col>
+      </b-row>
+
+      <b-row>
+          <b-col>
+              <div>
+                  <b-form-group id="dispositionDateGroup" label="Disposition Date : " label-for="prodDate">
+                      <b-input-group>
+                          <b-input type = "text"
+                                   :value = holdTicket.dispositionDate
+                                   id = "dispositionDate"
+                                   :readonly = "true">
+                          </b-input>
+
+                          <b-input-group-append>
+                              <b-button v-b-toggle.collapse3 variant="primary" v-b-tooltip.hover title="Change Disposition Date"><i class="fa fa-clock-o"></i></b-button>
+                          </b-input-group-append>
+                      </b-input-group>
+                  </b-form-group>
+                  <b-collapse id = "collapse3">
+                      <b-form-input id = "dispositionDate"
+                                    type="date"
+                                    v-model= holdTicket.dispositionDate
+                                    :readonly = "holdTicket.readonly">
+                      </b-form-input>
+                  </b-collapse>
+              </div>
+          </b-col>
+
+          <b-col>
+              <div>
+                  <b-form-group id="capaNumberGroup" label="CAPA Number (if required) :  " label-for="capaNumber">
+                      <b-form-input id = "capaNumber"
+                                    type="text"
+                                    v-model= holdTicket.cparNum
+                                    :readonly = "holdTicket.readonly">
+                      </b-form-input>
+                  </b-form-group>
+              </div>
+          </b-col>
+      </b-row>
+</div>

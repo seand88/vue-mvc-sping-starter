@@ -1,0 +1,29 @@
+<b-container>
+        <b-row>
+            <b-col>
+                <div>
+                    <b-form-group id="defectGroup" label="Cause Code : " label-for="defect">
+                        <b-form-select id = "defect"
+                                       :options = "defects"
+                                       v-model= holdTicket.defectId
+                                       :disabled = holdTicket.readonly>
+                        </b-form-select>
+                    </b-form-group>
+                </div>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col>
+                <div>
+                    <b-form-group id="commentsGroup" label="Description of Non-Conformance / Comments : " label-for="comments">
+                        <b-form-textarea id = "comments"
+                                         v-model= holdTicket.comments
+                                         :rows = "5"
+                                         :max-rows = "5"
+                                         :disabled = holdTicket.readonly>
+                        </b-form-textarea>
+                    </b-form-group>
+                </div>
+            </b-col>
+        </b-row>
+</b-container>

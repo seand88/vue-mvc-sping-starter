@@ -1,0 +1,50 @@
+<b-container>
+<b-form @submit = "onSubmit" @reset ="onReset">
+    <b-row>
+        <b-col cols = "4"> <h5>Edit Hold Ticket: {{holdTicket.holdTicketId}}</h5> </b-col>
+    </b-row>
+    <b-card
+        header = "Hold Ticket Details"
+        header-bg-variant = "secondary"
+        header-text-variant = "white">
+
+        <h3><b-btn variant = "primary" @click = editAll() ><i class="fa fa-edit"></i> Edit </b-btn></h3>
+
+        <b-tabs cards>
+            <b-card>
+                <b-card-body>
+                    <b-tab title = "Overview">
+                        <div>
+                            <EditHoldDetails :holdTicket = "holdTicket"></EditHoldDetails>
+                        </div>
+                    </b-tab>
+                    <b-tab title = "SAP Information">
+                        <div>
+                            <EditHoldSAPInfo :holdTicket = "holdTicket"></EditHoldSAPInfo>
+                        </div>
+                    </b-tab>
+                    <b-tab title = "Hold Defect Details">
+                        <div>
+                            <EditHoldDefect :holdTicket = "holdTicket"></EditHoldDefect>
+                        </div>
+                    </b-tab>
+                    <b-tab title = "Hold Disposition Details">
+                        <div>
+                            <EditHoldDisposition :holdTicket = "holdTicket"></EditHoldDisposition>
+                        </div>
+                    </b-tab>
+                    <b-tab title="File Attachments">
+                        <div>
+                            <HoldFileAttachmentHandler :holdTicket = "holdTicket"></HoldFileAttachmentHandler>
+                        </div>
+                    </b-tab>
+                </b-card-body>
+            </b-card>
+        </b-tabs>
+    </b-card>
+    <b-card-footer footer-bg-variant = "secondary" footer-text-variant = "white">
+        <b-button type="reset" variant="danger"><i class="fa fa-undo"></i> Reset</b-button>
+        <b-button type ="submit" variant = "success"><i class="fa fa-save"></i> Save </b-button>
+    </b-card-footer>
+</b-form>
+</b-container>

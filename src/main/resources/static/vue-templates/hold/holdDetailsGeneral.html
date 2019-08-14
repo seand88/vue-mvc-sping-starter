@@ -1,0 +1,74 @@
+<b-container>
+        <b-row>
+            <b-col>
+                    <b-form-group id="qtyOnHoldGroup" label="Pieces on Hold : " label-for="qtyOnHold">
+                        <b-form-input id = "qtyOnHold"
+                                      type="number"
+                                      v-model= holdTicket.qtyOnHold
+                                      :readonly = holdTicket.readonly>
+                        </b-form-input>
+                    </b-form-group>
+            </b-col>
+            <b-col>
+                <b-form-group id="productionDateGroup" label="Production Date : " label-for="prodDate">
+                    <b-input-group>
+                        <b-input type = "text"
+                                 :value = holdTicket.productionDate
+                                 id = "prodDate"
+                                 :readonly = "true">
+                        </b-input>
+                        <b-input-group-append>
+                            <b-button v-b-toggle.prodCollapse variant="primary" v-b-tooltip.hover title="Change Production Date"><i class="fa fa-clock-o"></i></b-button>
+                        </b-input-group-append>
+                    </b-input-group>
+                </b-form-group>
+                <b-collapse id = "prodCollapse">
+                    <b-form-input id = "prodDate"
+                                  type="date"
+                                  v-model= holdTicket.productionDate>
+                    </b-form-input>
+                </b-collapse>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col>
+                    <b-form-group id="skidsOnHoldGroup" label="Total Skids on Hold : " label-for="skidsOnHold">
+                        <b-form-input id = "skidsOnHold"
+                                      type="number"
+                                      v-model= holdTicket.totalSkids
+                                      :readonly = holdTicket.readonly>
+                        </b-form-input>
+                    </b-form-group>
+            </b-col>
+            <b-col>
+                    <b-form-group id="shiftProducedGroup" label="Shift Produced : " label-for="shiftProduced">
+                        <b-form-input id = "shiftProduced"
+                                      type="text"
+                                      v-model= holdTicket.producedByShift
+                                      :readonly = holdTicket.readonly>
+                        </b-form-input>
+                    </b-form-group>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col>
+                    <b-form-group id="skidNumsOnHoldGroup" label="Skid #'s on Hold : " label-for="skidNumsOnHold">
+                        <b-form-input id = "skidNumsOnHold"
+                                      type="text"
+                                      v-model= holdTicket.skidNumbersOnHold
+                                      :readonly = holdTicket.readonly>
+                        </b-form-input>
+                    </b-form-group>
+            </b-col>
+            <b-col>
+                    <b-form-group id="workCenterGroup" label="Work Center : " label-for="workCenter">
+                        <b-form-input id = "workCenter"
+                                      type="text"
+                                      v-model= holdTicket.workCenter
+                                      :readonly = holdTicket.readonly>
+                        </b-form-input>
+                    </b-form-group>
+            </b-col>
+        </b-row>
+        <PlantStatusPicker :holdTicket = "holdTicket"></PlantStatusPicker>
+</b-container>

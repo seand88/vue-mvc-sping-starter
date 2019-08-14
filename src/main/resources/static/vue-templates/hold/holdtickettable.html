@@ -1,0 +1,52 @@
+<!-- bootstrap vue data table for hold tickets -->
+<b-container>
+    <b-card-header>
+        <b-row>
+            <b-col md="6" class="my-1">
+                <b-form-group horizontal label="Search Hold Tickets" :label-cols = "4" class="mb-0">
+                    <b-input-group>
+                        <b-form-input v-model="filter" placeholder="Type to Search" />
+                        <b-input-group-append>
+                            <b-btn variant = "primary" :disabled="!filter" @click="filter = ''">Clear</b-btn>
+                        </b-input-group-append>
+                    </b-input-group>
+                </b-form-group>
+            </b-col>
+        </b-row>
+    </b-card-header>
+
+    <b-card border-variant ="secondary"
+            title = "Hold Tickets">
+        <b-card-body>
+            <!-- Main table element -->
+            <b-table outlined
+                     :hover = "hover"
+                     stacked="md"
+                     :items="holdTickets"
+                     :fields="fields"
+                     :current-page="currentPage"
+                     :per-page="perPage"
+                     :filter="filter"
+                     :sort-by.sync="sortBy"
+                     :sort-desc.sync="sortDesc"
+                     :sort-direction="sortDirection"
+                     @filtered="onFiltered">
+
+                <template slot="actions" slot-scope="row">
+                    <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
+                    <b-btn  id = "detailsButton" v-b-tooltip.hover title="Expand Details" variant = "info" @click.stop="row.toggleDetails"><i id = "detailsIcon" class = "fa fa-plus-circle" size="lg"></i></b-btn>
+                </template>
+                <template slot="row-details" slot-scope="row">
+                    <b-container fluid><HoldTicketDetail :holdTicket="row.item"></HoldTicketDetail> </b-container>
+                </template>
+            </b-table>
+        </b-card-body>
+    </b-card>
+    <b-card-footer>
+        <b-row>
+            <b-col md="6" class="my-1">
+                <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0" />
+            </b-col>
+        </b-row>
+    </b-card-footer>
+</b-container>

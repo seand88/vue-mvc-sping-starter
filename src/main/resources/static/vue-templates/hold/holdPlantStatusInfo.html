@@ -1,0 +1,27 @@
+        <b-row>
+            <b-col>
+                <div>
+                    <b-form-group id="plant" label="Plant : " label-for="plant">
+                        <b-form-select id = "plant"
+                                       :options = "plants"
+                                       v-model= holdTicket.plantCode
+                                       :disabled = holdTicket.readonly>
+                        </b-form-select>
+                    </b-form-group>
+                </div>
+            </b-col>
+            <b-col>
+                <div>
+                    <b-form-group id="status" label="Status : " label-for="status">
+                        <b-form-select id = "status"
+                                       :options = "statuses"
+                                       v-model= holdTicket.statusId
+                                       :disabled = holdTicket.readonly>
+                        </b-form-select>
+                        <b-form-text>
+                            May only close here if "Accept As-Is" disposition and approval is attached. Else, see action tracker!
+                        </b-form-text>
+                    </b-form-group>
+                </div>
+            </b-col>
+        </b-row>

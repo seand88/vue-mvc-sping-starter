@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "moduleResolution": "node",
+    "target": "es5",
+    "sourceMap": true,
+    "outDir": "src/main/resources/static/js",
+    "experimentalDecorators": true, //angular needs decorators like @Component, @Injectable, etc.
+    "emitDecoratorMetadata": true, //for angular to be able to use metadata we specify in our components.
+  }
+}

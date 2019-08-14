@@ -1,0 +1,41 @@
+*.class
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea/workspace.xml
+*.iws
+*.ipr
+
+## dont include artifact directories ##
+out/
+web/WEB-INF/classes/com
+web/WEB-INF/lib
+target/
+.mvn/
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+##node
+node_modules/
+
+### Mac-specific ###
+**/.DS_Store
+
+##package files**
+*.war
